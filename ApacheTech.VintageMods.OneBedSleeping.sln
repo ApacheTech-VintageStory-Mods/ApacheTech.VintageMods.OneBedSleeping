@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33209.295
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApacheTech.VintageMods.OneBedSleeping", "ApacheTech.VintageMods.OneBedSleeping\ApacheTech.VintageMods.OneBedSleeping.csproj", "{E87631E3-F514-4632-81F4-B713F67D4880}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Mod", "Mod", "{DF1F7EAB-C6CF-48B0-AEA3-C9CDE2BAB622}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Launch Server|Any CPU = Launch Server|Any CPU
+		Package|Any CPU = Package|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E87631E3-F514-4632-81F4-B713F67D4880}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E87631E3-F514-4632-81F4-B713F67D4880}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E87631E3-F514-4632-81F4-B713F67D4880}.Launch Server|Any CPU.ActiveCfg = Release|Any CPU
+		{E87631E3-F514-4632-81F4-B713F67D4880}.Launch Server|Any CPU.Build.0 = Release|Any CPU
+		{E87631E3-F514-4632-81F4-B713F67D4880}.Package|Any CPU.ActiveCfg = Package|Any CPU
+		{E87631E3-F514-4632-81F4-B713F67D4880}.Package|Any CPU.Build.0 = Package|Any CPU
+		{E87631E3-F514-4632-81F4-B713F67D4880}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E87631E3-F514-4632-81F4-B713F67D4880}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{E87631E3-F514-4632-81F4-B713F67D4880} = {DF1F7EAB-C6CF-48B0-AEA3-C9CDE2BAB622}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BEEF9AA1-EA0D-4D4D-A927-ECFBF0EFAF8E}
+	EndGlobalSection
+EndGlobal

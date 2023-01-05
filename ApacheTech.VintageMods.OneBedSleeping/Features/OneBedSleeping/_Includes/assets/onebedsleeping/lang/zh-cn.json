@@ -1,0 +1,4 @@
+{
+  "Features.OneBedSleeping.Command.Description": "改变睡眠时消耗食物的速度。"
+  "Features.OneBedSleeping.Command.UpedHunger": "睡觉时的饱和率现在被设定为。{0}"
+}

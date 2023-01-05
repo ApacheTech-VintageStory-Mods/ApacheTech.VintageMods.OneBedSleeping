@@ -1,0 +1,117 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+	  <LangVersion>9</LangVersion>
+	  <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+	  <OutputType>Library</OutputType>
+	  <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
+	  <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+	  <GenerateBindingRedirectsOutputType>true</GenerateBindingRedirectsOutputType>
+	  <Configurations>Debug;Release;Package</Configurations>
+	  <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="modicon.png" />
+    <None Remove="modinfo.json" />
+    <None Remove="_Includes\assets\.gitkeep" />
+    <None Remove="_Includes\assets\onebedsleeping\.gitkeep" />
+    <None Remove="_Includes\assets\onebedsleeping\lang\.gitkeep" />
+  </ItemGroup>
+
+	<ItemGroup>
+		<ProjectCapability Include="DynamicDependentFile" />
+		<ProjectCapability Include="DynamicFileNesting" />
+	</ItemGroup>
+
+  <ItemGroup>
+    <Content Include="_Includes\modicon.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="ApacheTech.VintageMods.OneBedSleeping.saproj">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="ApacheTech.VintageMods.FluentChatCommands" Version="2.0.1" />
+		<PackageReference Include="IsExternalInit" Version="1.0.3">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="VintageStory.Gantry.Core" Version="0.2.3" />
+		<PackageReference Include="VintageStory.Gantry.Core.DependencyInjection" Version="0.2.0" />
+		<PackageReference Include="VintageStory.Gantry.Services.FileSystem" Version="0.2.5" />
+		<PackageReference Include="VintageStory.Gantry.Services.FileSystem.DependencyInjection" Version="0.2.5" />
+		<PackageReference Include="VintageStory.Gantry.Services.HarmonyPatches" Version="0.2.0" />
+		<PackageReference Include="VintageStory.Gantry.Services.HarmonyPatches.DependencyInjection" Version="0.2.0" />
+		<PackageReference Include="VintageStory.Gantry.Services.Network" Version="0.2.0" />
+		<PackageReference Include="VintageStory.Gantry.Services.Network.DependencyInjection" Version="0.2.0" />
+	</ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="0Harmony">
+      <HintPath>D:\Games\Vintage Story\Lib\0Harmony.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>D:\Games\Vintage Story\Lib\Newtonsoft.Json.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="VintagestoryAPI">
+      <HintPath>D:\Games\Vintage Story\VintagestoryAPI.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="VSEssentials">
+      <HintPath>D:\Games\Vintage Story\Mods\VSEssentials.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="VSSurvivalMod">
+      <HintPath>D:\Games\Vintage Story\Mods\VSSurvivalMod.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+  </ItemGroup>
+
+	<PropertyGroup>
+		<ModPackagerDir>C:\Users\Apache\source\repos\ModPackager\ModPackager\bin\Release\net6.0\publish\win-x64\</ModPackagerDir>
+		<ModPackagerName>ModPackager.exe</ModPackagerName>
+		<ModPackagerPath>$(ModPackagerDir)$(ModPackagerName)</ModPackagerPath>
+
+		<ModInfoGeneratorDir>C:\Users\Apache\source\repos\Utils\ModInfoGenerator\</ModInfoGeneratorDir>
+		<ModInfoGeneratorName>ModInfoGenerator.exe</ModInfoGeneratorName>
+		<ModInfoGeneratorPath>$(ModInfoGeneratorDir)$(ModInfoGeneratorName)</ModInfoGeneratorPath>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Package|AnyCPU'">
+		<DefineConstants>TRACE</DefineConstants>
+		<Optimize>true</Optimize>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<ProjectCapability Include="DynamicDependentFile" />
+		<ProjectCapability Include="DynamicFileNesting" />
+	</ItemGroup>
+
+	<PropertyGroup>
+		<ModPackagerDir>C:\Users\Apache\source\repos\.tools\packager\</ModPackagerDir>
+		<ModPackagerName>ModPackager.exe</ModPackagerName>
+		<ModPackagerPath>$(ModPackagerDir)$(ModPackagerName)</ModPackagerPath>
+
+		<ModInfoGeneratorDir>C:\Users\Apache\source\repos\.tools\mig\</ModInfoGeneratorDir>
+		<ModInfoGeneratorName>mig.exe</ModInfoGeneratorName>
+		<ModInfoGeneratorPath>$(ModInfoGeneratorDir)$(ModInfoGeneratorName)</ModInfoGeneratorPath>
+	</PropertyGroup>
+
+	<Target Name="PostBuild" AfterTargets="PostBuildEvent">
+		<Exec Command="if $(Configuration) == Debug (&#xD;&#xA;&#xD;&#xA;:: Generator Mod Info file. ::&#xD;&#xA;cd &quot;$(ModInfoGeneratorDir)&quot;&#xD;&#xA;&quot;$(ModInfoGeneratorPath)&quot; -a &quot;$(TargetPath)&quot; -o $(TargetDir)&#xD;&#xA;&#xD;&#xA;:: Copy all other relevant files to target directory. ::&#xD;&#xA;xcopy &quot;$(TargetDir)&quot; &quot;$(SolutionDir).debug\$(ProjectName)&quot; /y /e /c /q&#xD;&#xA;xcopy &quot;$(ProjectDir)_Includes\&quot; &quot;$(SolutionDir).debug\$(ProjectName)&quot; /y /e /c /q&#xD;&#xA;FOR /D %25%25G IN ($(ProjectDir)Features\**) DO (&#xD;&#xA;    if exist &quot;%25%25G\_Includes\&quot; xcopy &quot;%25%25G\_Includes\&quot; &quot;$(SolutionDir).debug\$(ProjectName)&quot; /y /e /c /q&#xD;&#xA;)&#xD;&#xA;&#xD;&#xA;)&#xD;&#xA;&#xD;&#xA;if $(Configuration) == Package (&#xD;&#xA;&#xD;&#xA;:: Copy all other relevant files to target directory. ::&#xD;&#xA;xcopy &quot;$(ProjectDir)_Includes\&quot; &quot;$(TargetDir)_Includes\&quot; /y /e /c /q&#xD;&#xA;FOR /D %25%25G IN ($(ProjectDir)Features\**) DO (&#xD;&#xA;    if exist &quot;%25%25G\_Includes\&quot; xcopy &quot;%25%25G\_Includes\&quot; &quot;$(TargetDir)_Includes\&quot; /y /e /c /q&#xD;&#xA;)&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;:: Package the mod. ::&#xD;&#xA;cd &quot;$(ModPackagerDir)&quot;&#xD;&#xA;&quot;$(ModPackagerPath)&quot; -a &quot;$(TargetPath)&quot;&#xD;&#xA;&#xD;&#xA;:: Copy mod package to releases directory. ::&#xD;&#xA;copy /y &quot;$(TargetDir)release\*.zip&quot; &quot;$(SolutionDir).releases&quot;&#xD;&#xA;&#xD;&#xA;)" />
+	</Target>
+
+	<Target Name="PreBuild" BeforeTargets="PreBuildEvent">
+		<Exec Command="del /f /s /q $(TargetDir) &gt; NUL&#xD;&#xA;rmdir /s /q $(TargetDir)&#xD;&#xA;&#xD;&#xA;if $(Configuration) == Debug (&#xD;&#xA;&#xD;&#xA;del /f /s /q $(SolutionDir).debug\$(ProjectName) &gt; NUL&#xD;&#xA;rmdir /s /q $(SolutionDir).debug\$(ProjectName) &gt; NUL&#xD;&#xA;if not exist $(SolutionDir).debug\$(ProjectName)\ mkdir $(SolutionDir).debug\$(ProjectName)\&#xD;&#xA;&#xD;&#xA;)&#xD;&#xA;&#xD;&#xA;if $(Configuration) == Package (&#xD;&#xA;&#xD;&#xA;del /f /s /q $(SolutionDir).releases\ &gt; NUL&#xD;&#xA;rmdir /s /q $(SolutionDir).releases\ &gt; NUL&#xD;&#xA;if not exist $(SolutionDir).releases\ mkdir $(SolutionDir).releases\&#xD;&#xA;&#xD;&#xA;)" />
+	</Target>
+
+</Project>

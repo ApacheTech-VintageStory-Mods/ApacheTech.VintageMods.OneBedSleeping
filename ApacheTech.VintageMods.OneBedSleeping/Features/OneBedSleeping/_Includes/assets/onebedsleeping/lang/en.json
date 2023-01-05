@@ -1,0 +1,4 @@
+{
+  "Features.OneBedSleeping.Command.Description": "Change the rate at which food is consumed while sleeping.",
+  "Features.OneBedSleeping.Command.UpdatedHunger": "Saturation rate while sleeping is now set to: {0}"
+}
