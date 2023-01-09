@@ -15,6 +15,7 @@
 
             FluentChat.RegisterCommand("obs", api)!
                 .WithDescription(LangEntry("Command.Description"))
+                .RequiresPrivilege(Privilege.controlserver)
                 .HasSubCommand("hunger", h => h.WithHandler(OnHungerSubCommand).Build())
                 .HasSubCommand("players", h => h.WithHandler(OnPercentSubCommand).Build());
         }
@@ -35,8 +36,7 @@
             if (args.Length > 0)
             {
                 var value = args.PopFloat().GetValueOrDefault(0f);
-                if (value > 1f) value /= 100;
-                _settings.PlayerThreshold = GameMath.Clamp(value, 0f, 1f);
+                _settings.PlayerThreshold = GameMath.Clamp(value / 100, 0f, 1f);
             }
             player.SendMessage(groupId, LangEntry("Command.Players", _settings.PlayerThreshold * 100), EnumChatType.CommandSuccess);
         }
