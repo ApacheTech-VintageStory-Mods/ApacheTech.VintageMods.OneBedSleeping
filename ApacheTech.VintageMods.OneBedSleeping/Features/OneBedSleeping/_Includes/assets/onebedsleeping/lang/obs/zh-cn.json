@@ -1,0 +1,5 @@
+{
+  "Features.OneBedSleeping.Command.Description": "改变单人床睡觉的规则，为服务器。",
+  "Features.OneBedSleeping.Command.Hunger": "睡觉时的饥饿率。{0}%",
+  "Features.OneBedSleeping.Command.Players": "多人睡眠阈值。{0}%"
+}

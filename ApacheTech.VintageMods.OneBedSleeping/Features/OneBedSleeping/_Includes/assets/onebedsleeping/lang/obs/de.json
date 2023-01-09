@@ -1,0 +1,5 @@
+{
+  "Features.OneBedSleeping.Command.Description": "One-Bed-Sleeping-Regeln für den Server ändern.",
+  "Features.OneBedSleeping.Command.Hunger": "Hunger Rate While Sleeping: {0}%",
+  "Features.OneBedSleeping.Command.Players": "Multi-player Schlafschwelle: {0}%"
+}

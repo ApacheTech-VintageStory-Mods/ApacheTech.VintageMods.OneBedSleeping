@@ -1,4 +1,0 @@
-{
-  "Features.OneBedSleeping.Command.Description": "Зміна швидкості споживання їжі під час сну.",
-  "Features.OneBedSleeping.Command.UpdatedHunger": "Швидкість насичення під час сну тепер встановлено на: {0}"
-}

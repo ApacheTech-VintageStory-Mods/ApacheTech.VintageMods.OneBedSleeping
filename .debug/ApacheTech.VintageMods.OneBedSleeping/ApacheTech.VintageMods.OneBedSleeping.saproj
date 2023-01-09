@@ -1,5 +1,5 @@
 <SmartAssemblyProject ProjectId="{0593dcfa-1e1c-4852-b886-d5b76e1ea057}" Version="2.0">
-    <MainAssemblyFileName>.\bin\Release\net461\ApacheTech.VintageMods.OneBedSleeping.dll</MainAssemblyFileName>
+    <MainAssemblyFileName>.\bin\Release\netstandard2.0\ApacheTech.VintageMods.OneBedSleeping.dll</MainAssemblyFileName>
     <FriendlyName>ApacheTech.VintageMods.WaypointExtensions</FriendlyName>
     <CompanyName>ApacheTech Solutions</CompanyName>
     <Configuration Name="Release">
@@ -26,7 +26,7 @@
                 <Embedding Compress="1" Encrypt="1" />
             </Assembly>
             <Assembly AssemblyName="ApacheTech.VintageMods.Core, Culture=neutral, PublicKeyToken=null">
-                <Merging Merge="1">
+                <Merging Merge="0">
                     <Pruning Prune="1">
                         <Exclusion />
                     </Pruning>
@@ -98,7 +98,7 @@
                 <Embedding Compress="1" Encrypt="1" />
             </Assembly>
             <Assembly AssemblyName="System.ComponentModel.Composition, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-                <Merging Merge="1">
+                <Merging Merge="0">
                     <Pruning Prune="0">
                         <Exclusion />
                     </Pruning>
@@ -325,7 +325,7 @@
             </Assembly>
             <Assembly AssemblyName="ApacheTech.Common.DependencyInjection, Culture=neutral, PublicKeyToken=null">
                 <Merging Merge="1">
-                    <Pruning Prune="1">
+                    <Pruning Prune="0">
                         <Exclusion />
                     </Pruning>
                     <Obfuscation />
@@ -337,7 +337,7 @@
             </Assembly>
             <Assembly AssemblyName="ApacheTech.Common.Extensions.Harmony, Culture=neutral, PublicKeyToken=null">
                 <Merging Merge="1">
-                    <Pruning Prune="1">
+                    <Pruning Prune="0">
                         <Exclusion />
                     </Pruning>
                     <Obfuscation />
@@ -353,7 +353,7 @@
             </Assembly>
             <Assembly AssemblyName="ApacheTech.Common.Extensions, Culture=neutral, PublicKeyToken=null">
                 <Merging Merge="1">
-                    <Pruning Prune="1">
+                    <Pruning Prune="0">
                         <Exclusion />
                     </Pruning>
                     <Obfuscation />
@@ -511,11 +511,140 @@
                 <Merging>
                     <ResourcesCompression />
                     <MemberRefsProxy />
-                    <Pruning />
+                    <Pruning>
+                        <Exclusion />
+                    </Pruning>
                     <Obfuscation />
                     <ControlFlow />
                 </Merging>
                 <Embedding />
+            </Assembly>
+            <Assembly AssemblyName="Gantry.Core.DependencyInjection, Culture=neutral, PublicKeyToken=null">
+                <Merging Merge="1">
+                    <Pruning>
+                        <Exclusion />
+                    </Pruning>
+                    <Obfuscation />
+                    <ControlFlow />
+                    <MemberRefsProxy />
+                    <ResourcesCompression />
+                </Merging>
+                <Embedding Compress="1" Encrypt="1" />
+            </Assembly>
+            <Assembly AssemblyName="ApacheTech.Common.DependencyInjection.Abstractions, Culture=neutral, PublicKeyToken=null">
+                <Merging Merge="1">
+                    <Pruning>
+                        <Exclusion />
+                    </Pruning>
+                    <Obfuscation />
+                    <ControlFlow />
+                    <MemberRefsProxy />
+                    <ResourcesCompression />
+                </Merging>
+                <Embedding Compress="1" Encrypt="1" />
+            </Assembly>
+            <Assembly AssemblyName="Gantry.Services.FileSystem, Culture=neutral, PublicKeyToken=null">
+                <Merging Merge="1">
+                    <Pruning>
+                        <Exclusion />
+                    </Pruning>
+                    <Obfuscation />
+                    <ControlFlow />
+                    <MemberRefsProxy />
+                    <ResourcesCompression />
+                </Merging>
+                <Embedding Compress="1" Encrypt="1" />
+            </Assembly>
+            <Assembly AssemblyName="Gantry.Services.HarmonyPatches, Culture=neutral, PublicKeyToken=null">
+                <Merging Merge="1">
+                    <Pruning>
+                        <Exclusion />
+                    </Pruning>
+                    <Obfuscation />
+                    <ControlFlow />
+                    <MemberRefsProxy />
+                    <ResourcesCompression />
+                </Merging>
+                <Embedding Compress="1" Encrypt="1" />
+            </Assembly>
+            <Assembly AssemblyName="Gantry.Core, Culture=neutral, PublicKeyToken=null">
+                <Merging Merge="1">
+                    <Pruning>
+                        <Exclusion />
+                    </Pruning>
+                    <Obfuscation />
+                    <ControlFlow />
+                    <MemberRefsProxy />
+                    <ResourcesCompression />
+                </Merging>
+                <Embedding Compress="1" Encrypt="1" />
+            </Assembly>
+            <Assembly AssemblyName="Gantry.Services.FileSystem.DependencyInjection, Culture=neutral, PublicKeyToken=null">
+                <Merging Merge="1">
+                    <Pruning>
+                        <Exclusion />
+                    </Pruning>
+                    <Obfuscation />
+                    <ControlFlow />
+                    <MemberRefsProxy />
+                    <ResourcesCompression />
+                </Merging>
+                <Embedding Compress="1" Encrypt="1" />
+            </Assembly>
+            <Assembly AssemblyName="Gantry.Services.HarmonyPatches.DependencyInjection, Culture=neutral, PublicKeyToken=null">
+                <Merging Merge="1">
+                    <Pruning>
+                        <Exclusion />
+                    </Pruning>
+                    <Obfuscation />
+                    <ControlFlow />
+                    <MemberRefsProxy />
+                    <ResourcesCompression />
+                </Merging>
+                <Embedding Compress="1" Encrypt="1" />
+            </Assembly>
+            <Assembly AssemblyName="Gantry.Services.Network.DependencyInjection, Culture=neutral, PublicKeyToken=null">
+                <Merging Merge="1">
+                    <Pruning>
+                        <Exclusion />
+                    </Pruning>
+                    <Obfuscation />
+                    <ControlFlow />
+                    <MemberRefsProxy />
+                    <ResourcesCompression />
+                </Merging>
+                <Embedding Compress="1" Encrypt="1" />
+            </Assembly>
+            <Assembly AssemblyName="System.Memory, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51">
+                <Merging />
+                <Embedding Compress="1" Encrypt="1" />
+            </Assembly>
+            <Assembly AssemblyName="System.Numerics.Vectors, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+                <Merging />
+                <Embedding Compress="1" Encrypt="1" />
+            </Assembly>
+            <Assembly AssemblyName="System.Runtime.CompilerServices.Unsafe, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+                <Merging />
+                <Embedding Compress="1" Encrypt="1" />
+            </Assembly>
+            <Assembly AssemblyName="Gantry.Services.Network, Culture=neutral, PublicKeyToken=null">
+                <Merging Merge="1">
+                    <Pruning>
+                        <Exclusion />
+                    </Pruning>
+                    <Obfuscation />
+                    <ControlFlow />
+                    <MemberRefsProxy />
+                    <ResourcesCompression />
+                </Merging>
+                <Embedding Compress="1" Encrypt="1" />
+            </Assembly>
+            <Assembly AssemblyName="ZstdSharp, Culture=neutral, PublicKeyToken=8d151af33a4ad5cf">
+                <Embedding Compress="1" Encrypt="1" />
+                <Merging />
+            </Assembly>
+            <Assembly AssemblyName="System.Threading.Tasks.Extensions, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51">
+                <Merging />
             </Assembly>
         </Assemblies>
     </Configuration>

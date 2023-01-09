@@ -1,18 +1,4 @@
-﻿using ApacheTech.Common.DependencyInjection.Abstractions;
-using ApacheTech.Common.DependencyInjection.Abstractions.Extensions;
-using ApacheTech.VintageMods.FluentChatCommands;
-using Gantry.Core;
-using Gantry.Core.DependencyInjection;
-using Gantry.Core.DependencyInjection.Registration;
-using Gantry.Core.Extensions.GameContent;
-using Gantry.Core.ModSystems;
-using Gantry.Services.FileSystem.DependencyInjection;
-using Vintagestory.API.Common;
-using Vintagestory.API.Config;
-using Vintagestory.API.MathTools;
-using Vintagestory.API.Server;
-
-namespace ApacheTech.VintageMods.OneBedSleeping.Features.OneBedSleeping
+﻿namespace ApacheTech.VintageMods.OneBedSleeping.Features.OneBedSleeping
 {
     public sealed class OneBedSleeping : UniversalModSystem, IServerServiceRegistrar
     {
@@ -29,17 +15,33 @@ namespace ApacheTech.VintageMods.OneBedSleeping.Features.OneBedSleeping
 
             FluentChat.RegisterCommand("obs", api)!
                 .WithDescription(LangEntry("Command.Description"))
-                .HasSubCommand("hunger", h => h.WithHandler(OnServerChatCommand).Build());
+                .HasSubCommand("hunger", h => h.WithHandler(OnHungerSubCommand).Build())
+                .HasSubCommand("players", h => h.WithHandler(OnPercentSubCommand).Build());
         }
 
-        private void OnServerChatCommand(IPlayer player, int groupId, CmdArgs args)
+        private void OnHungerSubCommand(IPlayer player, int groupId, CmdArgs args)
         {
-            var value = args.PopFloat().GetValueOrDefault(1f);
-            _settings.SaturationMultiplier = GameMath.Clamp(value, 0f, 2f);
-            player.SendMessage(groupId, LangEntry("Command.UpdatedHunger", value), EnumChatType.CommandSuccess);
+            if (args.Length != 0)
+            {
+                var value = args.PopFloat().GetValueOrDefault(1f);
+                _settings.SaturationMultiplier = GameMath.Clamp(value, 0f, 2f);
+            }
+            player.SendMessage(groupId,
+                LangEntry("Command.Hunger", _settings.SaturationMultiplier * 100), EnumChatType.CommandSuccess);
         }
 
-        private string LangEntry(string code, params object[] args)
+        private void OnPercentSubCommand(IPlayer player, int groupId, CmdArgs args)
+        {
+            if (args.Length > 0)
+            {
+                var value = args.PopFloat().GetValueOrDefault(0f);
+                if (value > 1f) value /= 100;
+                _settings.PlayerThreshold = GameMath.Clamp(value, 0f, 1f);
+            }
+            player.SendMessage(groupId, LangEntry("Command.Players", _settings.PlayerThreshold * 100), EnumChatType.CommandSuccess);
+        }
+
+        private static string LangEntry(string code, params object[] args) 
             => LangEx.FeatureString("OneBedSleeping", code, args);
         
     }

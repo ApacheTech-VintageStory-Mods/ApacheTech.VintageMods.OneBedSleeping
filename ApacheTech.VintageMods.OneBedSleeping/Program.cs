@@ -1,8 +1,4 @@
-﻿using ApacheTech.Common.DependencyInjection.Abstractions;
-using ApacheTech.VintageMods.FluentChatCommands;
-using Gantry.Core.DependencyInjection;
-using Gantry.Services.FileSystem.DependencyInjection;
-using Gantry.Services.HarmonyPatches.DependencyInjection;
+﻿using Gantry.Services.HarmonyPatches.DependencyInjection;
 using Gantry.Services.Network.DependencyInjection;
 
 namespace ApacheTech.VintageMods.OneBedSleeping
@@ -33,8 +29,8 @@ namespace ApacheTech.VintageMods.OneBedSleeping
         /// </summary>
         public override void Dispose()
         {
-            base.Dispose();
             FluentChat.ClearCommands(UApi);
+            base.Dispose();
         }
     }
 }

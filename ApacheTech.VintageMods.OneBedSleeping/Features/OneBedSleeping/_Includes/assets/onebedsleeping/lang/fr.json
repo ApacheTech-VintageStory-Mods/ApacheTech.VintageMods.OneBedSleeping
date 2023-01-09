@@ -1,4 +1,0 @@
-{
-  "Features.OneBedSleeping.Command.Description": "Modifier la vitesse à laquelle la nourriture est consommée pendant le sommeil",
-  "Features.OneBedSleeping.Command.UpdatedHunger": "Le taux de saturation pendant le sommeil est maintenant fixé à : {0}"
-}

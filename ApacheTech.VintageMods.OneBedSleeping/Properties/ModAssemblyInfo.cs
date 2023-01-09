@@ -1,6 +1,4 @@
-﻿using Vintagestory.API.Common;
-
-// ReSharper disable StringLiteralTypo
+﻿// ReSharper disable StringLiteralTypo
 
 [assembly: ModDependency("game", "1.16.4")]
 [assembly: ModDependency("survival", "1.16.4")]
@@ -10,7 +8,7 @@
     "onebedsleeping",
     Description = "For use on SMP servers. Only one person needs to sleep in order to pass the time.",
     Side = "Universal",
-    Version = "2.0.0",
+    Version = "2.1.0",
     RequiredOnClient = true,
     RequiredOnServer = true,
     NetworkVersion = "1.0.0",

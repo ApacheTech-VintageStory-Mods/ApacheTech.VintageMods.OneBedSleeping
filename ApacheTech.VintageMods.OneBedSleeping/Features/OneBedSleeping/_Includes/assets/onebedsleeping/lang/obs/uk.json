@@ -1,0 +1,5 @@
+{
+  "Features.OneBedSleeping.Command.Description": "Змінити правила One-Bed Sleeping, для сервера.",
+  "Features.OneBedSleeping.Command.Hunger": "Швидкість голоду під час сну: {0}%",
+  "Features.OneBedSleeping.Command.Players": "Поріг сну для кількох гравців: {0}%"
+}

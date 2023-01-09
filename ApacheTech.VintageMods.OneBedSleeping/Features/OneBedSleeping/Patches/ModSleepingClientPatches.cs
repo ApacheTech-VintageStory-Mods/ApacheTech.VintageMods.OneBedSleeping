@@ -1,17 +1,11 @@
-﻿using Gantry.Services.HarmonyPatches.Annotations;
-using HarmonyLib;
-using JetBrains.Annotations;
-using Vintagestory.API.Client;
-using Vintagestory.API.Common;
-using Vintagestory.GameContent;
-
-// ReSharper disable UnusedType.Global
-// ReSharper disable InconsistentNaming
+﻿// ReSharper disable InconsistentNaming
 // ReSharper disable RedundantAssignment
 
 namespace ApacheTech.VintageMods.OneBedSleeping.Features.OneBedSleeping.Patches
 {
+    [SettingsConsumer(EnumAppSide.Client)]
     [HarmonySidedPatch(EnumAppSide.Client)]
+    [UsedImplicitly(ImplicitUseTargetFlags.WithMembers)]
     public sealed class ModSleepingClientPatches
     {
         [HarmonyPrefix]

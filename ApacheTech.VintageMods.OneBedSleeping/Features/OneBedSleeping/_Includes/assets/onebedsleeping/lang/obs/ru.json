@@ -1,0 +1,5 @@
+{
+  "Features.OneBedSleeping.Command.Description": "Изменить правила односпальной кровати для сервера",
+  "Features.OneBedSleeping.Command.Hunger": "Уровень голода во время сна: {0}%",
+  "Features.OneBedSleeping.Command.Players": "Порог сна для нескольких игроков: {0}%"
+}

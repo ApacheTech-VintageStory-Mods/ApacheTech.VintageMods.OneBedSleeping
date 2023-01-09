@@ -1,0 +1,5 @@
+{
+  "Features.OneBedSleeping.Command.Description": "サーバーの One-Bed Sleeping のルールを変更する",
+  "Features.OneBedSleeping.Command.Hunger": "睡眠中の空腹率。{0}%",
+  "Features.OneBedSleeping.Command.Players": "マルチプレイヤー睡眠しきい値。{0}%"
+}
