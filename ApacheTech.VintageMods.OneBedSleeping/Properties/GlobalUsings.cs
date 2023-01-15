@@ -3,6 +3,8 @@ global using System.Linq;
 
 global using ApacheTech.Common.DependencyInjection.Abstractions;
 global using ApacheTech.Common.DependencyInjection.Abstractions.Extensions;
+global using ApacheTech.Common.Extensions.System;
+
 global using ApacheTech.VintageMods.FluentChatCommands;
 
 global using JetBrains.Annotations;
@@ -18,6 +20,7 @@ global using Gantry.Services.HarmonyPatches.Annotations;
 
 global using HarmonyLib;
 
+global using Vintagestory.API.Config;
 global using Vintagestory.API.Common;
 global using Vintagestory.API.MathTools;
 global using Vintagestory.API.Server;

@@ -43,6 +43,10 @@
 			<PrivateAssets>all</PrivateAssets>
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
+		<PackageReference Include="PolySharp" Version="1.10.0">
+		  <PrivateAssets>all</PrivateAssets>
+		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
 		<PackageReference Include="VintageStory.Gantry.Core" Version="0.3.3" />
 		<PackageReference Include="VintageStory.Gantry.Core.DependencyInjection" Version="0.3.2" />
 		<PackageReference Include="VintageStory.Gantry.Services.FileSystem" Version="0.3.3" />
@@ -102,10 +106,6 @@
 	<ItemGroup>
 		<ProjectCapability Include="DynamicDependentFile" />
 		<ProjectCapability Include="DynamicFileNesting" />
-	</ItemGroup>
-
-	<ItemGroup>
-	  <Folder Include="_Includes\assets\onebedsleeping\lang\" />
 	</ItemGroup>
 
 	<PropertyGroup>
