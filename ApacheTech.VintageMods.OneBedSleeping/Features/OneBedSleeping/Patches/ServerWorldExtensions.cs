@@ -12,5 +12,9 @@ namespace ApacheTech.VintageMods.OneBedSleeping.Features.OneBedSleeping.Patches
 
         public static IEnumerable<IServerPlayer> SleepingPlayers(this IEnumerable<IServerPlayer> players) 
             => players.Where(p => p.Entity?.MountedOn is BlockEntityBed);
+
+        public static bool Toggle(this ref bool value) => value = !value;
+        public static bool EnsureTrue(this ref bool value) => value = true;
+        public static bool EnsureFalse(this ref bool value) => value = false;
     }
-}
+}   

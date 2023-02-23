@@ -51,19 +51,24 @@ namespace ApacheTech.VintageMods.OneBedSleeping.Features.OneBedSleeping.Patches
         private static void BroadcastNowSleepingMessage()
         {
             var serverMain = ApiEx.ServerMain;
-
-            var allPlayers = serverMain.AllPlayersThatCouldSleep().ToList();
-            var sleepingPlayers = allPlayers.SleepingPlayers().Select(p => p.PlayerName).ToList();
-            var messageCode = LangEx.FeatureCode("OneBedSleeping", "NowSleeping");
-
-            foreach (var val in serverMain.Clients)
+            try
             {
-                var player = val.Value.Entityplayer.Player.To<IServerPlayer>();
-                var locale = player.LanguageCode;
-                var message = Lang.GetL(locale, messageCode, string.Join(", ", sleepingPlayers));
-                serverMain.SendMessage(player, GlobalConstants.AllChatGroups, message, EnumChatType.Notification);
+                var allPlayers = serverMain.AllPlayersThatCouldSleep().ToList();
+                var sleepingPlayers = allPlayers.SleepingPlayers().Select(p => p.PlayerName).ToList();
+                var messageCode = LangEx.FeatureCode("OneBedSleeping", "NowSleeping");
+         
+                foreach (var player in allPlayers)
+                {
+                    var message = Lang.GetL(player.LanguageCode, messageCode, string.Join(", ", sleepingPlayers));
+                    serverMain.SendMessage(player, GlobalConstants.AllChatGroups, message, EnumChatType.Notification);
+                }
+            }
+            catch (ArgumentNullException e)
+            {
+                serverMain.Api.Logger.Error(e.Message);
+                serverMain.Api.Logger.Error(e.StackTrace);
+                throw;
             }
         }
-
     }
 }

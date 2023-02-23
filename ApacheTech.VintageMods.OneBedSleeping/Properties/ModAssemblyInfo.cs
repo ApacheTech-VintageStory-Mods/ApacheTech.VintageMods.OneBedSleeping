@@ -8,7 +8,7 @@
     "onebedsleeping",
     Description = "For use on SMP servers. Only one person needs to sleep in order to pass the time.",
     Side = "Universal",
-    Version = "2.1.1",
+    Version = "2.1.2",
     RequiredOnClient = true,
     RequiredOnServer = true,
     NetworkVersion = "1.0.0",
